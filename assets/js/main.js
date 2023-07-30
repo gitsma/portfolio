@@ -214,18 +214,65 @@
 })()
 
 /**
- * google map api
+ * contacts form
  */
 
-let map;
+ // Your web app's Firebase configuration
+ var firebaseConfig = {
+  apiKey: "AIzaSyAiaZZKAIyhdxodYnL6VN0KqJBN_C8GJ7A",
+  authDomain: "contactscv-5e116.firebaseapp.com",
+  databaseURL: "https://contactscv-5e116-default-rtdb.firebaseio.com",
+  projectId: "contactscv-5e116",
+  storageBucket: "contactscv-5e116.appspot.com",
+  messagingSenderId: "273802458214",
+  appId: "1:273802458214:web:8a17102f3be1d5757aa9a7"
+};
 
-async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const firestore = firebase.firestore();
 
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
+
+let messagesRef = firebase.database().ref('messages');
+
+document.getElementById('sendMessage').addEventListener('submit', submitForm);
+
+function submitForm(e){
+  e.preventDefault();
+
+  // get Values
+  let name = getInputVal('name');
+  let email = getInputVal('email');
+  let subject = getInputVal('subject');
+  let message = getInputVal('message');
+
+  //save message
+
+  saveMessage(name, email, subject, message);
+
+  //show alert
+  document.querySelector('.alert').style.display='block';
+
+  //Hide alert after 3 s
+  setTimeout(function(){
+      document.querySelector('.alert').style.display='none';
+  }, 3000)
+  //clear form
+  document.getElementById('contactsForm').reset();
+}
+//function to get form values
+
+function getInputVal(id){
+  return document.getElementById(id).value;
 }
 
-initMap();
+//save message to firebase
+function saveMessage(name, email, subject, message){
+  let newMessageRef = messagesRef.push();
+  newMessageRef.set({
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+  })
+}
