@@ -218,7 +218,7 @@
  */
 
  // Your web app's Firebase configuration
- var firebaseConfig = {
+ var config = {
   apiKey: "AIzaSyAiaZZKAIyhdxodYnL6VN0KqJBN_C8GJ7A",
   authDomain: "contactscv-5e116.firebaseapp.com",
   databaseURL: "https://contactscv-5e116-default-rtdb.firebaseio.com",
@@ -229,13 +229,11 @@
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore();
-
+firebase.initializeApp(config);
 
 let messagesRef = firebase.database().ref('messages');
 
-document.getElementById('sendMessage').addEventListener('submit', submitForm);
+document.getElementById('contactsForm').addEventListener('submit', submitForm);
 
 function submitForm(e){
   e.preventDefault();
@@ -274,5 +272,5 @@ function saveMessage(name, email, subject, message){
       email: email,
       subject: subject,
       message: message
-  })
+  });
 }

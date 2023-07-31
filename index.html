@@ -326,15 +326,6 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-js">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/LithuaniaKitchen.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="https://ltkitchen.vercel.app/?vercelToolbarCode=LeTfcDdM0lrzfP5" target="_blank" title="Visit"><i class="bx bx-link"></i><h6>Visit a Project</h6></a>
-              </div>
-            </div>
-          </div>
-
           <div class="col-lg-4 col-md-6 portfolio-item filter-react">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/CountriesAPI.png" class="img-fluid" alt="">
@@ -368,6 +359,15 @@
               <img src="assets/img/portfolio/princesita3.png" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="https://www.princesita.lt/" target="_blank" title="Visit"><i class="bx bx-link"></i><h6>Visit a Project</h6></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-js">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/LithuaniaKitchen.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://ltkitchen.vercel.app/?vercelToolbarCode=LeTfcDdM0lrzfP5" target="_blank" title="Visit"><i class="bx bx-link"></i><h6>Visit a Project</h6></a>
               </div>
             </div>
           </div>
@@ -416,7 +416,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form class="contactsForm">
+            <form class="contactsForm" id="contactsForm">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -438,7 +438,7 @@
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="alert">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center" id="sendMessage"><button type="submit">Send Message</button></div>
             </form>
@@ -467,6 +467,7 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Main JS File -->
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>
